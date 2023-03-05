@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./images/favicon-32x32.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="front-page">
+          <div class="card">
+            <div class="front-card">
+              <div class="cfront">
+                <img
+                  class="face-logo"
+                  src="images/card-logo.svg"
+                  alt="card logo"
+                />
+                <img  class="front-cardN" src="images/bg-card-front.png" alt="credit card" />
+              </div>
+              <div class="card-number">0000 0000 0000 0000</div>
+              <div id="cnum-new" class="card-number hidden"></div>
+              <div class="cardname">Jane Appleseed</div>
+              <div id="cname-new" class="cardname hidden"></div>
+              <div class="card-expM">00</div>
+              <div id="expM-new" class="card-expM hidden"></div>
+              <div class="card-expD">/</div>
+              <div class="card-expY">00</div>
+              <div id="expY-new" class="card-expY hidden"></div>
+            </div>
+            <div class="back-card">
+              <div class="backc">
+                <div class="cback">
+                  <img  class="back-cN" src="images/bg-card-back.png" alt="credit card" />
+                </div>
+                <div class="card-cvc">000</div>
+                <div id="cvc-new" class="card-cvc hidden"></div>
+              </div>
+            </div>
+          </div>
+          <form action="" name="form-card" class="card-data">
+            <label for="cname">Cardholder Name</label>
+            <br />
+            <input
+              pattern="[a-zA-Z\s]+"
+              id="cname"
+              name="cname"
+              type="text"
+              placeholder="e.g. Jane Appleseed"
+              required
+            />
+            <br />
+            <label for="cnum">Card Number</label> <br />
+            <input
+              pattern="[0-9\s]+"
+              maxlength="19"
+              id="cnum"
+              type="tel"
+              placeholder="e.g. 1234 5678 9123 0000"
+              required
+            />
+            <span class="error-message">Wrong format, numbers only</span>
+            <label id="exp-id" for="exp">Exp. Date (MM/YY)</label>
+            <label id="cvc-t" for="cvc">CVC</label> <br />
+            <input
+              pattern="[0-9]+"
+              maxlength="2"
+              id="exp"
+              class="exp-m"
+              type="text"
+              placeholder="MM"
+              required
+            />
+            <input
+              pattern="[0-9]+"
+              maxlength="2"
+              id="exp"
+              class="exp-y"
+              type="text"
+              placeholder="YY"
+              required
+            />
+            <input
+              pattern="[0-9]+"
+              maxlength="3"
+              id="cvc"
+              type="text"
+              placeholder="e.g. 123"
+              required
+            />
+
+            <span class="errorC">Can't be blank</span>
+            <br />
+      
+            <button id="submit">Confirm</button>
+          </form>
+        </div>
+      </div>
+      </div>
+      <div class="spinner-class">
+        <div class="spinner"></div>
+        <p>adding card details...</p>
+      </div>
+      <div class="errorlead">
+        <div class="error-div">
+          <div class="error-pop">
+            ::)
+            <p>Please enter correct card details.😞</p>
+            <button class="error-ok">OK</button>
+          </div>
+        </div>
+      </div>
+      <div class="overlay hidden"></div>
+      <!-- Completed state start -->
+      <div class="backpage">
+        <div class="resultpage">
+          <img src="images/icon-complete.svg" alt="" />
+          <h2>Thank you!</h2>
+          <p>We've added your card details</p>
+          <button id="reset">Continue</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

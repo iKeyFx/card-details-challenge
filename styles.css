@@ -1,0 +1,396 @@
+*,
+*::after,
+*::before {
+  overflow: hidden;
+}
+
+body {
+  display: grid;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  background: url(images/bg-main-desktop.png) no-repeat;
+  background-color: white;
+  background-size: contain;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.front-page,
+.backpage {
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 600px 600px;
+  place-items: center;
+  justify-content: center;
+}
+.backpage {
+  display: none;
+}
+.resultpage {
+  display: grid;
+  place-items: center;
+  align-items: center;
+  justify-content: center;
+}
+.front-card {
+  position: relative;
+}
+.face-logo {
+  position: absolute;
+  margin: 30px 35px;
+}
+.card-number {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  color: white;
+  font-size: 1.7rem;
+  letter-spacing: 4px;
+}
+.cardname {
+  position: absolute;
+  bottom: 12%;
+  left: 7%;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 2px;
+}
+.card-expM {
+  color: white;
+  position: absolute;
+  bottom: 12%;
+  right: 30%;
+  letter-spacing: 2px;
+}
+.card-expY {
+  color: white;
+  position: absolute;
+  bottom: 12%;
+  right: 23%;
+  letter-spacing: 2px;
+}
+.card-expD {
+  color: white;
+  position: absolute;
+  bottom: 12%;
+  right: 28%;
+  letter-spacing: 2px;
+}
+
+.back-card {
+  position: relative;
+}
+.backc {
+  margin-top: 30px;
+  margin-left: 90px;
+}
+
+.card-cvc {
+  color: white;
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  right: 10%;
+  letter-spacing: 2px;
+}
+
+/* CARD DATA  */
+label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: hsl(278, 68%, 11%);
+  font-size: small;
+}
+
+input {
+  font-family: inherit;
+  width: 60%;
+  height: 40px;
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  text-indent: 15px;
+  letter-spacing: 1px;
+  color: hsl(278, 68%, 11%);
+  font-size: 18px;
+  padding: 0;
+}
+input:hover {
+  cursor: pointer;
+}
+input:focus {
+  outline: none;
+  border: double 1px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(white, white),
+    linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+::placeholder {
+  color: hsl(270, 3%, 87%);
+  font-size: 18px;
+}
+
+#exp {
+  width: 10%;
+}
+
+#cvc {
+  width: 30%;
+  margin-left: 40px;
+}
+#cvc-t {
+  margin-left: 40px;
+}
+
+button {
+  margin: 20px 0;
+  width: 62%;
+  height: 50px;
+  font-family: inherit;
+  font-size: 18px;
+  background-color: hsl(278, 68%, 11%);
+  border-radius: 10px;
+  color: white;
+  border: 1px solid hsl(278, 68%, 11%);
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+#cnum,
+#cvc,
+#exp {
+  margin-bottom: 5px;
+}
+.errorC {
+  display: block;
+  color: red;
+  font-size: 12px;
+  display: none;
+}
+.error-message {
+  display: block;
+  color: red;
+  font-size: 12px;
+  opacity: 0;
+  margin-bottom: 10px;
+}
+
+input:not(:placeholder-shown):not(:focus):invalid {
+  border: 2px solid red;
+}
+
+input:not(:placeholder-shown):invalid + .error-message {
+  opacity: 1;
+}
+
+#cvc:not(:placeholder-shown):invalid + .errorC {
+  display: block;
+}
+
+/* BACK STYLE  */
+.resultpage {
+  display: grid;
+  place-items: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: hsl(278, 68%, 11%);
+  margin-bottom: 0;
+  line-height: 2rem;
+}
+
+p {
+  font-size: 18px;
+  color: hsl(279, 6%, 55%);
+}
+#reset {
+  width: 400px;
+}
+
+/* spinner  */
+.spinner-class {
+  display: none;
+  justify-content: center;
+  place-items: center;
+}
+.spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+
+  border-top: 8px solid hsl(278, 94%, 30%);
+  border-left: 8px solid hsl(278, 94%, 30%);
+  border-right: 8px solid hsl(278, 94%, 30%);
+
+  animation: spin 0.575s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.errorlead {
+  display: none;
+  justify-content: center;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.error-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 300px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.error-ok {
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+/* Moble - Tap */
+@media screen and (max-width: 1200px) {
+  body {
+    overflow: auto;
+    background: url(images/bg-main-mobile.png) no-repeat;
+    background-color: white;
+    background-size: contain;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
+  .front-page {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 300px;
+    place-items: center;
+    justify-content: center;
+  }
+  .front-cardN,
+  .back-cN {
+    width: 300px;
+    height: auto;
+  }
+  .face-logo {
+    width: 50px;
+  }
+  .card-number {
+    font-size: 1rem;
+    letter-spacing: 4px;
+  }
+  .card-expM {
+    right: 16%;
+    font-size: 0.6rem;
+  }
+  .card-expY {
+    right: 8%;
+    font-size: 0.6rem;
+  }
+  .card-expD {
+    color: white;
+    position: absolute;
+    right: 14%;
+    font-size: 0.6rem;
+  }
+  .cardname {
+    letter-spacing: 2px;
+    font-size: 0.6rem;
+  }
+  .card-cvc {
+    font-size: 12px;
+    top: 42%;
+  }
+  .back-card {
+    position: absolute;
+    top: 5%;
+    z-index: -1;
+    right: 3%;
+  }
+  .front-card {
+    position: absolute;
+    left: 3%;
+    top: 19%;
+  }
+  .backc {
+    margin: 0;
+  }
+  .card-data {
+    position: relative;
+    margin-top: 80%;
+  }
+
+  input {
+    width: 98%;
+  }
+
+  #exp {
+    width: 25%;
+  }
+
+  #cvc {
+    width: 40%;
+    margin-left: 10px;
+  }
+  #cvc-t {
+    margin-left: 40px;
+  }
+
+  button {
+    margin: 20px 0;
+    width: 100%;
+  }
+  ::placeholder {
+    font-size: 14px;
+  }
+  .error-div {
+    width: 300px;
+    height: 150px;
+  }
+  .error-ok {
+    width: 40px;
+    height: auto;
+    bottom: 0%;
+  }
+
+  .resultpage {
+    margin-top: 100%;
+  }
+  .face-logo {
+    margin: 20px;
+  }
+}
